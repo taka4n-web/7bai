@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>7のだん なんばい？ かけざん</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&display=swap">
+<style>
+:root{--bg:#fff6df;--card:#fffefa;--ink:#4a3f3a;--sub:#8c7f77;--tape:#ead9bd;--tapeline:#b99a6b;--hl:#fff0a3;--main:#ff8fab;--mint:#bfe8d8;--bl:#cfe8fb;--pk:#fcd5dc;--yw:#fff1c4;--ok:#1f9a70;--bad:#e0624d;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2b2523;--card:#383130;--ink:#fbefe6;--sub:#c6b6ad;--tape:#6d5b43;--tapeline:#d1b27f;--hl:#6f5f1f;--main:#ff8fab;--mint:#35594c;--bl:#2f4e68;--pk:#6a3b48;--yw:#645820;--ok:#7fe0b8;--bad:#ff9b86}}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Yu Gothic",sans-serif;font-weight:700;line-height:1.7}
+main{max-width:540px;margin:0 auto;padding:14px 16px 40px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+h1{font-size:1.1rem;margin:0;line-height:1.4}
+.cnt{text-align:center;background:var(--card);border:3px solid var(--main);border-radius:20px;padding:4px 14px;line-height:1.2}
+.cnt small{display:block;color:var(--sub);font-size:.72rem}
+.cnt b{font-size:2rem;font-weight:900;color:var(--main)}
+.talk{display:flex;align-items:center;gap:8px;margin:12px 0 4px}
+.talk svg{width:76px;flex:none}
+.bub{position:relative;flex:1;background:var(--card);border:3px solid var(--mint);border-radius:22px;padding:8px 14px;font-size:.95rem;line-height:1.5;min-height:3.4em;display:flex;align-items:center}
+.bub:before{content:"";position:absolute;left:-11px;top:50%;margin-top:-8px;border:8px solid transparent;border-right:11px solid var(--mint);border-left:0}
+.card{background:var(--card);border:3px solid var(--main);border-radius:24px;padding:16px;margin-top:10px}
+.q{font-size:1.1rem;margin:0 0 6px}
+mark{background:linear-gradient(transparent 55%,var(--hl) 55%);color:inherit}
+.bars{display:flex;margin:12px 0 2px}
+.bar{flex:1;height:42px;background:var(--tape);border:2.5px solid var(--tapeline);margin-left:-2.5px}
+.bar:first-child{margin-left:0;border-radius:10px 0 0 10px}.bar:last-child{border-radius:0 10px 10px 0}
+.cap{display:flex}.cap span{flex:1;text-align:center;font-size:.8rem;color:var(--sub)}
+b.cb,b.cp,b.cy,span.cb,span.cp,span.cy{border-radius:8px;padding:0 6px;font-weight:900}
+.cb{background:var(--bl)}.cp{background:var(--pk)}.cy{background:var(--yw)}
+.eq{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:0 6px;margin:16px 0 4px;text-align:center;font-size:1.6rem;font-weight:900}
+.nb{border-radius:12px;min-height:2.6rem;display:flex;align-items:center;justify-content:center;gap:2px;border:3px solid transparent}
+.nb small{font-size:.75rem}
+.nb.b{background:var(--bl)}.nb.p{background:var(--pk)}.nb.y{background:var(--yw)}
+.nb.t{cursor:pointer;border-style:dashed;border-color:var(--main)}
+.nb.t.on{border-style:solid}
+.lb{position:relative;margin-top:12px;border-radius:18px;padding:5px 4px;font-size:.88rem;line-height:1.3}
+.lb:before{content:"";position:absolute;top:-9px;left:50%;margin-left:-8px;border:8px solid transparent;border-top:0;border-bottom:9px solid currentColor}
+.lb.b{background:var(--bl);color:var(--bl)}.lb.p{background:var(--pk);color:var(--pk)}.lb.y{background:var(--yw);color:var(--yw)}
+.lb span{color:var(--ink)}
+.shiki{font-size:1.5rem;text-align:center;margin:12px 0 4px;min-height:2.4rem}
+.slot{display:inline-block;min-width:2.1em;border:3px dashed var(--main);border-radius:12px;padding:0 6px;background:var(--hl);cursor:pointer}
+.slot.on{border-style:solid}
+.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.pad{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:8px}
+button{font:inherit;font-weight:900;font-size:1.2rem;color:var(--ink);background:var(--card);border:3px solid var(--mint);border-bottom-width:5px;border-radius:16px;padding:6px 2px;min-height:52px;cursor:pointer}
+button:focus-visible,.slot:focus-visible{outline:3px solid var(--ok);outline-offset:2px}
+button:active{background:var(--hl)}
+.go{grid-column:span 5;background:var(--main);border-color:#e86c8d;color:#fff;font-size:1.1rem}
+.wide{margin-top:8px;width:100%;font-size:.95rem;min-height:42px}
+.msg{min-height:1.8em;margin:10px 0 0}
+.ok{color:var(--ok)}.ng{color:var(--bad)}
+.next{margin-top:8px;width:100%;background:var(--mint)}
+.note{margin-top:16px;font-size:.9rem;color:var(--sub);background:var(--card);border-radius:16px;padding:8px 14px}
+@media (prefers-reduced-motion:no-preference){.pop{animation:p .4s}@keyframes p{40%{transform:scale(1.06)}}}
+[hidden]{display:none!important}
+.cover{text-align:center}
+.cover h2{font-size:1.6rem;line-height:1.4;margin:6px 0;color:var(--main)}
+.cover svg{width:130px}
+.cover .card{text-align:left}
+.cover p{margin:6px 0}
+.steps{list-style:none;padding:0;margin:8px 0 0}
+.steps li{background:var(--bg);border-radius:14px;padding:6px 12px;margin-top:6px}
+.start{margin-top:16px;width:100%;background:var(--main);border-color:#e86c8d;color:#fff;font-size:1.3rem;min-height:58px}
+.back{background:none;border:none;font-size:.85rem;color:var(--sub);min-height:0;padding:0 4px;text-decoration:underline;border-radius:0}
+</style>
+</head>
+<body>
+<main class="cover" id="cover">
+<svg id="cvsvg" viewBox="0 0 80 80" aria-hidden="true"></svg>
+<h2>7のだん<br>なんばい？ かけざん</h2>
+<div class="card">
+<p>1ばいは、<span class="cb">1つぶん</span>のこと。<br>3つぶんなら、3ばいだよ。</p>
+<p>なんばいかの ながさは、かけざんで もとめられるよ。<br>この アプリは <b class="cb">7のだん</b>だけ！ 1つぶんは いつも 7cm だよ。</p>
+<div class="eq"><span class="nb b">7</span><span>×</span><span class="nb p">3</span><span>=</span><span class="nb y">21<small>cm</small></span><div class="lb b"><span>1つぶんの かず</span></div><span></span><div class="lb p"><span>いくつぶん</span></div><span></span><div class="lb y"><span>ぜんぶの かず</span></div></div>
+<ul class="steps"><li>1　まず、なんばいかを こたえよう。</li><li>2　つぎに、しきの □に かずを ぜんぶ いれよう。</li><li>3　せいかいした もんだいが ふえていくよ。もんだいは ずっと つづくよ！</li></ul>
+</div>
+<button class="start" onclick="startApp()">はじめる</button>
+</main>
+<main id="app" hidden>
+<button class="back" onclick="showCover()">ひょうしへ</button>
+<div class="top"><h1>7のだん<br>なんばい？ かけざん</h1>
+<div class="cnt" aria-live="polite"><small>せいかい</small><b id="cnt">0</b> もん<small id="first">&nbsp;</small></div></div>
+<div class="talk">
+<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="18" cy="20" r="10" fill="#ffd9a8"/><circle cx="62" cy="20" r="10" fill="#ffd9a8"/><circle cx="18" cy="20" r="5" fill="#ffb3c1"/><circle cx="62" cy="20" r="5" fill="#ffb3c1"/><ellipse cx="40" cy="46" rx="33" ry="30" fill="#ffd9a8"/><circle cx="29" cy="44" r="3.6" fill="#4a3f3a"/><circle cx="51" cy="44" r="3.6" fill="#4a3f3a"/><circle cx="30" cy="43" r="1.1" fill="#fff"/><circle cx="52" cy="43" r="1.1" fill="#fff"/><ellipse cx="22" cy="54" rx="5.5" ry="3.5" fill="#ff9fb3" opacity=".8"/><ellipse cx="58" cy="54" rx="5.5" ry="3.5" fill="#ff9fb3" opacity=".8"/><path d="M34 54q6 7 12 0" fill="none" stroke="#4a3f3a" stroke-width="2.6" stroke-linecap="round"/></svg>
+<div class="bub" id="bub"></div></div>
+<div class="card" id="box"></div>
+<div class="note">1ばいは 1つぶん。3つぶんは 3ばい、4つぶんは 4ばい。<br>なんばいかの ながさは、かけざんで もとめられるよ。</div>
+</main>
+<script>
+var things=[{n:"テープ",u:"cm",w:"ながさ",v:[2,3,4,5,6,7,8,9]},{n:"ひも",u:"cm",w:"ながさ",v:[2,3,4,5,6,7,8,9]},{n:"リボン",u:"cm",w:"ながさ",v:[3,4,5,6,7,8]}];
+var Q1=["1ばいは、1つぶんの ことだよ。","3つぶんなら、3ばい！","おなじ おおきさを ならべると、ばいに なるよ。","かけざんは、たしざんを はやくする ほうほう！","あおは 1つぶん、ピンクは いくつぶん、きいろは ぜんぶ！"];
+var QOK=["すごい！ つぎは しきを つくろう。","いいね！ かけざんの しきだよ。","せいかい！ もうすこし！"];
+var QNG=["だいじょうぶ、もういちど やってみよう。","おしい！ ゆっくり みてみよう。","まちがえても へいき。つぎが あるよ。"];
+var QDN=["やったね！","1もん ふえたよ！","いいかんじ！ つぎも いこう。"];
+var done=0,fst=0,q,step,miss,v,act;
+function r(a,b){return a+Math.floor(Math.random()*(b-a+1))}
+function pk(x){return x[r(0,x.length-1)]}
+function shuf(x){return x.sort(function(){return Math.random()-.5})}
+function bub(t){document.getElementById("bub").textContent=t}
+function newQ(){var t=pk(things),a=7,n=r(2,9);q={t:t,a:a,n:n};step=0;miss=0;v=["",""];act=0;draw();bub(pk(Q1))}
+function bars(){var h='<div class="bars" role="img" aria-label="'+q.a+q.t.u+'が '+q.n+'つぶん">',c="";
+for(var i=0;i<q.n;i++){h+='<div class="bar"></div>';c+='<span><b class="cb">'+q.a+q.t.u+'</b></span>'}return h+'</div><div class="cap">'+c+'</div>'}
+function nb(c,val,tap,i){var on=tap&&act==i?" on":"";return'<span class="nb '+c+(tap?' t'+on:'')+'">'+val+'</span>'}
+function eq(){var u=q.t.u,m,k,A=nb("b",q.a);
+if(step==0){m=nb("p",v[0]||"\u3000",1,0);k=nb("y","?<small>"+u+"</small>")}
+else{A=nb("b",v[0]||"\u3000",1,0);m=nb("p",v[1]||"\u3000",1,1);k=nb("y",(v[2]||"\u3000")+"<small>"+u+"</small>",1,2)}
+return'<div class="eq">'+A+'<span>×</span>'+m+'<span>=</span>'+k+'<div class="lb b"><span>1つぶんの かず</span></div><span></span><div class="lb p"><span>いくつぶん</span></div><span></span><div class="lb y"><span>ぜんぶの かず</span></div></div>'}
+function draw(){
+document.getElementById("cnt").textContent=done;
+document.getElementById("first").textContent=done?"(いっぱつ "+fst+")":"\u00a0";
+var B=document.getElementById("box"),a=q.a,n=q.n,u=q.t.u,w=q.t.w;
+var qt=step==0?'<p class="q"><span class="cb">'+a+u+'</span>の '+q.t.n+'が <span class="cp">'+n+'つぶん</span>。<span class="cb">'+a+u+'</span>の <span class="cp">なんばい</span>？</p>':'<p class="q"><span class="cb">'+a+u+'</span>の <span class="cp">'+n+'ばい</span>の '+w+'は <span class="cy">なんcm</span>？ しきを かんせいさせよう。</p>';
+var hint=step==0?"□に、なんばいかを いれよう。":"こんどは しきを ぜんぶ、□に いれよう。□を タップすると ばしょを かえられるよ。";
+B.innerHTML=qt+bars()+(step==0?'<p class="shiki"><span class="nb p t on" style="display:inline-flex;min-width:2.4em;padding:0 8px">'+(v[0]||"\u3000")+'</span> ばい</p>':eq())+'<div class="pad">'+[1,2,3,4,5,6,7,8,9,0].map(function(d){return'<button onclick="num('+d+')">'+d+'</button>'}).join("")+'<button class="go" onclick="chk()">こたえあわせ</button></div><button class="wide" onclick="v[act]=v[act].slice(0,-1);draw()">けす</button><p class="msg" id="m">'+hint+'</p>'}
+function say(t,c){var m=document.getElementById("m");m.className="msg "+c;m.textContent=t}
+function num(d){if(v[act].length<(act==2?2:1)){v[act]+=d;if(step==1&&act<2)act++;draw()}}
+function chk(){var right=q.a*q.n,m;
+if(step==0){
+if(+v[0]==q.n){step=1;act=0;v=["","",""];draw();say("せいかい！ "+q.n+"ばいだね。つぎは しきを つくろう。","ok");bub(pk(QOK))}
+else{miss=1;v[0]="";draw();say("ちがうよ。1つぶんが 1ばい。つぶんの かずを かぞえてみよう。","ng");bub(pk(QNG))}}
+else if(+v[0]!=q.a||+v[1]!=q.n||+v[2]!=right){miss=1;var w1=+v[0]!=q.a,w2=+v[1]!=q.n,w3=+v[2]!=right,t;
+if(w1){v[0]="";act=0;t="さいしょの かずは、1つぶんの かず。1つぶんは なんcm？"}
+else if(w2){v[1]="";act=1;t="まんなかの かずは、いくつぶん（なんばい）の かずだよ。"}
+else{v[2]="";act=2;t="しきは あってるよ！ こたえを もういちど。"}
+if(w1)v[0]="";if(w2)v[1]="";if(w3&&!w1&&!w2)v[2]="";draw();say(t,"ng");bub(pk(QNG))}
+else{done++;if(!miss)fst++;draw();m=document.getElementById("m");m.className="msg ok pop";m.innerHTML='<b class="cb">'+q.a+'</b> × <b class="cp">'+q.n+'</b> = <b class="cy">'+right+q.t.u+'</b>。せいかい！<button class="next" onclick="newQ()">つぎの もんだい</button>';document.querySelector(".go").disabled=true;bub(pk(QDN))}}
+function startApp(){document.getElementById("cover").hidden=true;document.getElementById("app").hidden=false;window.scrollTo(0,0)}
+function showCover(){document.getElementById("app").hidden=true;document.getElementById("cover").hidden=false;window.scrollTo(0,0)}
+document.getElementById("cvsvg").innerHTML=document.querySelector(".talk svg").innerHTML;
+newQ();
+</script>
+</body>
+</html>
